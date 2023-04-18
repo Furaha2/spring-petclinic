@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonarserver') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=develop"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=develop -Dsonar.java.binaries=target/classes"
                 }
             }
         }
