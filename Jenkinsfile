@@ -12,7 +12,7 @@ pipeline {
 
         stage('Ansible Playbook') {
             environment {
-                scannerHome = tool 'SonarQube Scanner'
+                ANSIBLE_PRIVATE_KEY = tool 'SonarQube Scanner'
             }
             steps {
                 sh '''
