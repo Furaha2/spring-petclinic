@@ -10,13 +10,16 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('Ansible Playbook') {
             environment {
                 scannerHome = tool 'SonarQube Scanner'
             }
             steps {
-                withSonarQubeEnv('sonarserver') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=develop -Dsonar.java.binaries=target/classes"
+                sh '''
+                ansible --version
+                ansible-playbook --version
+                ansible-galaxy --version
+                '''
                 }
             }
         }
