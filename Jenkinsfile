@@ -1,15 +1,21 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven'
+            }
     stages {
         stage('Build') {
             steps {
-                sh 'mvnw clean install -DskipTests'
+                sh 'mvn clean package'
             }
-            }
-            stage('Deploy') {
+        }
+
+        stage('Deploy') {
+            
             steps {
                 ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
                 }
             }
         }
-  }
+    }
+}
