@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvnw clean install -DskipTests'
             }
             }
             stage('Deploy') {
             steps {
-                ansible-playbook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
+                ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
                 }
             }
         }
