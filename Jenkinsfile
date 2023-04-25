@@ -11,11 +11,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh '''
-                ansible --version
-                ansible-playbook --version
-                ansible-galaxy --version
-                '''
+                ansible-playbook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
                 }
             }
         }
