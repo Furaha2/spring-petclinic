@@ -8,12 +8,11 @@ pipeline {
             steps {
                 sh 'mvn clean package'
             }
-        }
-        stage('Deploy') {
+            }
+            stage('Deploy') {
             steps {
                 ansible-playbook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
                 }
             }
         }
-    }
-}
+  }
