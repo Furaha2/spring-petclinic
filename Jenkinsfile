@@ -9,11 +9,7 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
-        stage('Ansible Playbook') {
-            environment {
-                ANSIBLE_PRIVATE_KEY = tool 'SonarQube Scanner'
-            }
+        stage('Deploy') {
             steps {
                 sh '''
                 ansible --version
