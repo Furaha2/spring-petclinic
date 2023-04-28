@@ -6,14 +6,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvnw clean package'
             }
         }
 
         stage('Deploy') {
             
             steps {
-                ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible)
+                ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible, credentialsId: 'furaha')
                 }
             }
         }
