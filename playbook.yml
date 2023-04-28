@@ -3,9 +3,16 @@
 hosts: localhost
 become: yes
 
-roles:
-  - geerlingguy.repo-epel
-  - geerlingguy.jenkins
-  - geerlingguy.git
-  - tecris.maven
-  - geerlingguy.ansible
+tasks:
+  - name: Deploy java
+    file: 
+      path: /app_folder
+      state: dir
+  - name: Copy jar file
+    copy: 
+      src: "/var/path_to_jar_file"
+      dest: /app_folder/
+  - name: Execute jar file
+    shell: "java -jar jar_name"
+    args: 
+      executable: /bin/bash
