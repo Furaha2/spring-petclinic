@@ -13,7 +13,7 @@ pipeline {
         stage('Deploy') {
             
             steps {
-                ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:ansible, credentialsId: 'furaha')
+                ansibleplaybook(inventory:'hosts.ini', playbook:'playbook.yml', installation:'ansible', credentialsId: 'furaha')
                 }
             }
         }
