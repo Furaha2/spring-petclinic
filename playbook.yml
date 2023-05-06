@@ -1,7 +1,7 @@
 ---
 - name: Deploy Jenkins CI
-hosts: localhost
-become: yes
+  hosts: localhost
+  become: yes
 
 tasks:
   - name: Deploy java
