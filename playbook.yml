@@ -3,16 +3,16 @@
   hosts: localhost
   become: yes
 
-tasks:
-  - name: Deploy java
-    file: 
-      path: /app_folder
-      state: dir
-  - name: Copy jar file
-    copy: 
-      src: "/var/lib/jenkins/workspace/petclinic/target/spring-petclinic*.jar"
-      dest: /app_folder/spring-petclinic*.jar
-  - name: Execute jar file
-    shell: "java -jar spring-petclinic*.jar"
-    args: 
-      executable: /bin/bash
+  tasks:
+    - name: Deploy java
+      file: 
+        path: /app_folder
+        state: dir
+    - name: Copy jar file
+      copy: 
+        src: "/var/lib/jenkins/workspace/petclinic/target/spring-petclinic*.jar"
+        dest: /app_folder/spring-petclinic*.jar
+    - name: Execute jar file
+      shell: "java -jar spring-petclinic*.jar"
+      args: 
+        executable: /bin/bash
