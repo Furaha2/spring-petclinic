@@ -6,7 +6,7 @@
   - name: Deploy java
     file: 
       path: /app_folder
-      state: dir
+      state: directory
   - name: Copy jar file
     copy: 
       src: "/var/lib/jenkins/workspace/petclinic/target/spring-petclinic*.jar"
